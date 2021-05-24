@@ -1,6 +1,9 @@
 # Python
 import os
 
+# Bottle
+from bottle import response
+
 # api
 from api import app
 from api.models import Note, db
