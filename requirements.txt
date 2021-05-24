@@ -1,6 +1,7 @@
-bottle==0.12.13
+bottle==0.12.19
 click==8.0.1
-marshmallow==2.13.5
-peewee==2.10.1
-PyJWT==1.5.2
+Cython==0.29.23
+marshmallow==3.12.1
+peewee==3.14.4
+PyJWT==2.1.0
 python-dotenv==0.17.1

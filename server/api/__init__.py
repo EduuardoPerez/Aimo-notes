@@ -1,8 +1,4 @@
-from bottle import Bottle, TEMPLATE_PATH
-
+from bottle import Bottle, hook
 app = Bottle()
-TEMPLATE_PATH.append("./api/views/")
-TEMPLATE_PATH.remove("./views/")
-
 
 from api.controllers import *

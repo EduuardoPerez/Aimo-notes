@@ -1,2 +1,1 @@
-from .users import User
-from .notes import Note
+from .models import User, Note, db
