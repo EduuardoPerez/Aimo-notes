@@ -1,10 +1,8 @@
 # Python
 from functools import wraps
 from json import dumps
-
 # Bottle
-from bottle import response, request
-
+from bottle import response, request, parse_auth
 # Models
 from api.models import User
 
@@ -21,14 +19,21 @@ def check_auth(email, password):
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        auth = request.headers['Authorization']
-        if not auth or not check_auth(auth.username, auth.password):
+        auth = request.get_header('Authorization')
+        try:
+            username, password = parse_auth(auth)
+        except:
             response.content_type = 'application/json'
-            response.status_code = 401
-            response.headers['WWW-Authenticate'] = 'Basic realm="Example"'
-            resp = {'message': 'Please authenticate'}
+            response.status = 401
+            resp = {'error': 'Empty credentials'}
             return dumps(resp)
-        kwargs['user'] = User.get(User.email == auth.username)
+        if not auth or not check_auth(username, password):
+            response.content_type = 'application/json'
+            response.status = 401
+            response.headers['WWW-Authenticate'] = 'Basic realm="Example"'
+            resp = {'message': 'Authentication failed'}
+            return dumps(resp)
+        kwargs['user'] = User.get(User.email == username)
         return f(*args, **kwargs)
 
     return decorated

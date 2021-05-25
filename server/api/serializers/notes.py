@@ -5,10 +5,8 @@ from marshmallow import (
     post_dump,
     post_load,
 )
-
 # Serializers
 from .users import UserModelSerializer
-
 # Models
 from api.models import Note
 

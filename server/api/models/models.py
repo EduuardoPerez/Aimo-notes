@@ -1,6 +1,5 @@
 # Python
 import os
-
 # Peewee
 from peewee import (
     SqliteDatabase,

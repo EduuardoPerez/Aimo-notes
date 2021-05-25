@@ -1,9 +1,7 @@
 # Bottle
 from bottle import request, response
-
 # Marshmallow
 from marshmallow import ValidationError
-
 # api
 from api import app
 from api.serializers import user_serializer
