@@ -12,8 +12,9 @@ from api.controllers.utilities import requires_auth
 
 
 @app.route(['/notes','/notes/'], method=['GET'])
-def get_notes():
-    notes = Note.select()  # Get all notes
+@requires_auth
+def get_notes(user):
+    notes = Note.select().where(Note.user == user)  # Get all notes
     return notes_serializer.dump(list(notes))
 
 
