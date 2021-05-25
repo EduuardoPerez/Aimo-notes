@@ -1,20 +1,31 @@
 # Python
 import os
 # Bottle
-from bottle import response, request
+from bottle import response, request, hook
 # Marshmallow
 from marshmallow import ValidationError
 # api
 from api import app
-from api.models import Note, db
+from api.models import db, Note
 from api.serializers import notes_serializer, note_serializer
-from api.controllers.utilities import requires_auth
+from api.controllers.authentication import requires_auth
+
+
+@hook('before_request')
+def _connect_db():
+    db.connect()
+
+
+@hook('after_request')
+def _close_db():
+    if not db.is_closed():
+        db.close()
 
 
 @app.route(['/notes','/notes/'], method=['GET'])
 @requires_auth
 def get_notes(user):
-    notes = Note.select().where(Note.user == user)  # Get all notes
+    notes = Note.select().where(Note.user == user)
     return notes_serializer.dump(list(notes))
 
 

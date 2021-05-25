@@ -12,10 +12,3 @@ db.create_tables([
     User,
     Note
 ])
-
-# This was the test from the server.api.models
-# def create_tables():
-#     db.init(os.getenv('DATABASE_PATH'))
-#     db.connect()
-#     User.create_table(True)
-#     Note.create_table(True)
