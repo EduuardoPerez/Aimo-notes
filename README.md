@@ -6,7 +6,7 @@ API created to manage notes
 ```
 python3 -m venv .venv
 source .venv/bin/activate
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 ## Banck-end server
 To start it run
