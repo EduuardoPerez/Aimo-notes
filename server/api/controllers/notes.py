@@ -26,6 +26,8 @@ def _close_db():
 @requires_auth
 def get_notes(user):
     notes = Note.select().where(Note.user == user)
+    response.content_type = 'application/json'
+    response.status = 200
     return notes_serializer.dump(list(notes))
 
 
@@ -37,7 +39,10 @@ def new_note(user):
         note = note_serializer.load(content)
     except ValidationError as err:
         response.status = 422
+        response.content_type = 'application/json'
         return {"errors": err.messages}
     note.user = user
     note.save()
+    response.content_type = 'application/json'
+    response.status = 201
     return note_serializer.dump(note)

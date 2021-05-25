@@ -29,6 +29,7 @@ def signup():
     try:
         data = user_serializer.load(req)
     except ValidationError as err:
+        response.content_type = 'application/json'
         response.status = 422
         return {'errors': err.messages}
     try:
@@ -40,11 +41,13 @@ def signup():
         )
         message = f'Successfully created user: {user.email}'
     else:
+        response.content_type = 'application/json'
         response.status = 400
         return {'errors': 'Invalid email. It is in use'}
 
     data = user_serializer.dump(user)
     data['message'] = message
+    response.content_type = 'application/json'
     response.status = 201
     return data
 

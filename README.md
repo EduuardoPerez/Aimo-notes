@@ -37,7 +37,9 @@ Options:
 The parameters can also be set in an .env file that is lifted from the root of the project. Check [.env.sample](https://github.com/EduuardoPerez/Aimo-notes/blob/master/.env.sample) file for watch the possible variables.
 
 ### Available end-points
-| End-point|HTTP Methods|
-| ------- | ----- |
-| /users/signup/ | POST |
-| /notes/ | GET & POST |
+| End-point      | Method | Response | Requirements |
+| -------------- | ------ | -------- | ------------ |
+| /users/signup/ | POST | JSON with errors or success message | Needs the header Content-Type application/json |
+| /users/login/ | GET | JSON with the user token | Needs the header Authorization Basic with username and password |
+| /notes/ | POST | JSON with the created note | Needs the headers Content-Type application/json and Authorization with the user token (Syntax: **Token \<user  token\>**) |
+| /notes/ | GET | JSON with the list of user's notes. Empty if the user has not created any | Needs the header Authorization with the user token (Syntax: **Token \<user  token\>**) |
