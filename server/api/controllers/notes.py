@@ -1,27 +1,14 @@
 # Python
 import os
 # Bottle
-from bottle import response, request, hook
+from bottle import response, request
 # Marshmallow
 from marshmallow import ValidationError
 # api
 from api import app
-from api.models import db, Note
+from api.models import Note
 from api.serializers import notes_serializer, note_serializer
-from api.controllers.authentication import requires_auth
-from api.controllers.utilities import enable_cors
-
-
-@hook('before_request')
-def _connect_db():
-    db.connect()
-
-
-@hook('after_request')
-def _close_db_and_enable_cors():
-    enable_cors()
-    if not db.is_closed():
-        db.close()
+from api.authentication import requires_auth
 
 
 @app.route(['/notes','/notes/'], method=['GET'])

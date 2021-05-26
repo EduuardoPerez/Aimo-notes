@@ -7,22 +7,8 @@ from marshmallow import ValidationError
 # api
 from api import app
 from api.serializers import user_serializer
-from api.models import db, User
-
-from .authentication import encrypted_password, check_auth, user_token
-from api.controllers.utilities import enable_cors
-
-
-@hook('before_request')
-def _connect_db():
-    db.connect()
-
-
-@hook('after_request')
-def _close_db_and_enable_cors():
-    enable_cors()
-    if not db.is_closed():
-        db.close()
+from api.models import User
+from api.authentication import encrypted_password, check_auth, user_token
 
 
 @app.route(['/users/signup','/users/signup/'], method=['POST'])

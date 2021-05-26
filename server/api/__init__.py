@@ -1,4 +1,3 @@
-from bottle import Bottle
-app = Bottle()
+from api.app import app
 
 from api.controllers import *
