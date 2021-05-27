@@ -2,7 +2,8 @@ import os
 import projectpath
 from peewee import SqliteDatabase
 from dotenv import load_dotenv
-from api.models import User, Note, db
+from api.models import User, Note
+from api.app import db
 
 load_dotenv('../.env')
 

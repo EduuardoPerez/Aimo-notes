@@ -9,7 +9,16 @@ source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 ## Banck-end server
-To start it run
+Server that serve the API
+
+### Setup for back-end server
+To create the SQLite database execute
+```
+cd utilities
+python3 create-database.py
+```
+
+To start the back-end server run
 ```
 python3 server/manage.py start-server
 ```
@@ -45,6 +54,7 @@ The parameters can also be set in an .env file that is lifted from the root of t
 | /notes/ | GET | JSON with the list of user's notes. Empty if the user has not created any | Needs the header Authorization with the user token (Syntax: **Token \<user  token\>**) |
 
 ## Front-end server
+Basic front
 To start it run
 ```
 cd client
