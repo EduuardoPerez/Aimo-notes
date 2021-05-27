@@ -1,1 +1,118 @@
-<!-- You can use any js library (: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aimo notes</title>
+    <link rel="icon" href="https://www.aimo.co/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+<div class="container mt-5 mb-5">
+
+<section id="login">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+            <div class="login-wrap mt-5 p-4 p-md-5">
+                <div class="icon d-flex align-items-center justify-content-center">
+                    <i class="far fa-user icon-white"></i>
+                </div>
+                <h3 class="text-center mb-4">Sign In</h3>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <input id="login-email-inp" type="email" class="form-control rounded-left" placeholder="Email" required>
+                    </div>
+                    <div class="form-group d-flex">
+                        <input id="login-password-inp" type="password" class="form-control rounded-left" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button id="btn-login" type="submit" class="form-control btn btn-primary rounded submit px-3">Log in</button>
+                    </div>
+                    <div class="form-group d-md-flex">
+                        <div class="text-md-left">
+                            <button id="btn-signup-txt" type="button" class="btn btn-link">Not registered? Sign up!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="signup">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+            <div class="login-wrap mt-5 p-4 p-md-5">
+                <div class="icon d-flex align-items-center justify-content-center">
+                    <i class="far fa-user icon-white"></i>
+                </div>
+                <h3 class="text-center mb-4">Sign up</h3>
+                <form id="signup-form" class="login-form">
+                    <div class="form-group">
+                        <input id="signup-email-inp" type="email" class="form-control rounded-left" placeholder="Email" required>
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        <input id="signup-password-inp" type="password" class="form-control rounded-left" placeholder="Password" required>
+                        <input id="signup-confirm-password-inp" type="password" class="form-control rounded-left" placeholder="Confirm password" required>
+                    </div>
+                    <div class="form-group">
+                        <button id="btn-signup" type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
+                    </div>
+                    <div class="form-group d-md-flex">
+                        <div class="text-md-left">
+                            <button id="btn-login-txt" type="button" class="btn btn-link">Registered? Back to log in!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="list-notes">
+    <div class="row justify-content-center">
+        <div class="login-wrap col-md-10 col-lg-10">
+            <h3 class="text-center mt-5 mb-5">
+                <i class="far fa-sticky-note"></i>
+                Notes
+            </h3>
+            <div id="user-notes" class="col-8 mt-5">
+            </div>
+            <div class="text-center">
+                <button id="btn-to-create-note" type="button" class="form-control btn btn-primary rounded submit px-3 mt-5 mb-5">Create new note</button>
+            </div>
+        </div>
+    <div>
+</section>
+
+<section id="create-note">
+    <div class="row justify-content-center">
+        <div class="login-wrap col-md-10 col-lg-10">
+            <h3 class="text-center mt-5 mb-5">
+                <i class="far fa-sticky-note"></i>
+                New note
+            </h3>
+            <div id="user-notes" class="col-12 mt-5">
+                <label for="note-title">Title</label>
+                <input id="note-title" class="form-control mb-2" type="text" placeholder="Note title">
+                <label for="note-content">Content</label>
+                <textarea id="note-content" class="form-control" rows="6" placeholder="Note content"></textarea>
+            </div>
+            <div class="text-center">
+                <button id="btn-create-note" type="button" class="form-control btn btn-primary rounded submit px-3 mt-5 mb-5">Create note</button>
+            </div>
+        </div>
+    <div>
+</section>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="src/js/main.js"></script>
+
+</body>
+</html>

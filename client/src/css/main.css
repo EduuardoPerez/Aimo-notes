@@ -1,0 +1,11 @@
+.icon-white {
+    color: white;
+}
+
+#signup, #list-notes, #create-note {
+    display: none;
+}
+
+#btn-create-note {
+    width: 50%;
+}
