@@ -39,7 +39,15 @@ The parameters can also be set in an .env file that is lifted from the root of t
 ### Available end-points
 | End-point      | Method | Response | Requirements |
 | -------------- | ------ | -------- | ------------ |
-| /users/signup/ | POST | JSON with errors or success message | Needs the header Content-Type application/json |
+| /users/signup/ | POST | JSON with errors or success message | Needs the header Content-Type application/json  |
 | /users/login/ | GET | JSON with the user token | Needs the header Authorization Basic with username and password |
 | /notes/ | POST | JSON with the created note | Needs the headers Content-Type application/json and Authorization with the user token (Syntax: **Token \<user  token\>**) |
 | /notes/ | GET | JSON with the list of user's notes. Empty if the user has not created any | Needs the header Authorization with the user token (Syntax: **Token \<user  token\>**) |
+
+## Front-end server
+To start it run
+```
+cd client
+python3 client.py
+```
+Runs at http://localhost:5000
